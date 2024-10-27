@@ -9,6 +9,10 @@ export const routes: Routes = [
   },
   {
     path: 'create-product',
-    component: CreateComponent,
+    //Normal
+    //component: CreateComponent,
+
+    //carregando a pagina apenas quando abrem ela, lazy load
+    loadComponent: () => import('./features/create/create.component').then(m => m.CreateComponent),
   }
 ];
