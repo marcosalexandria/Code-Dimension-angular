@@ -33,15 +33,8 @@ export class CreateComponent {
       })
       .subscribe(() => {
 
-        this.matSnackbar.open(
-          'Porduto salvo com sucesso!',
-          'OK',
-          {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-          }
-        );
+        //as configuracoes estao no app.config apos refatoracao para uso global
+        this.matSnackbar.open('Porduto salvo com sucesso!', 'OK');
 
         this.router.navigateByUrl('/').catch(console.log)
 
