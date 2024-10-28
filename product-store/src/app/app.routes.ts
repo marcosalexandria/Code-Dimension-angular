@@ -14,5 +14,9 @@ export const routes: Routes = [
 
     //carregando a pagina apenas quando abrem ela, lazy load
     loadComponent: () => import('./features/create/create.component').then(m => m.CreateComponent),
+  },
+  {
+    path: 'edit-product',
+    loadComponent: () => import('./features/edit/edit.component').then(m => m.EditComponent),
   }
 ];
