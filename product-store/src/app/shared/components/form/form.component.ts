@@ -18,7 +18,7 @@ export class FormComponent {
 
   form!: FormGroup;
 
-  @Output() submit = new EventEmitter<Product>();
+  @Output() done = new EventEmitter<Product>();
 
   ngOnInit(){
     this.form = new FormGroup({
@@ -32,7 +32,7 @@ export class FormComponent {
   onSubmit(){
     const product = this.form.value as Product;
 
-    this.submit.emit(product);
+    this.done.emit(product);
   }
 
 }

@@ -17,8 +17,8 @@
       "title": "Ventilador"
     },
     {
-      "id": "26a2",
-      "title": "Camisa"
+      "title": "chuca",
+      "id": "26a2"
     },
     {
       "id": "b9c0",
@@ -39,6 +39,18 @@
     {
       "id": "070c",
       "title": "Celular"
+    },
+    {
+      "id": "decd",
+      "title": "Computador"
+    },
+    {
+      "id": "4f16",
+      "title": "Mouse"
+    },
+    {
+      "id": "4643",
+      "title": "Faca"
     }
   ]
 }

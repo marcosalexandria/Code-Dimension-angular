@@ -1,18 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../shared/services/products.service';
 import { Product } from '../../shared/interfaces/product.inteface';
+import { FormComponent } from '../../shared/components/form/form.component';
 
 
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
+  imports: [FormComponent],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.scss'
 })
@@ -24,18 +22,9 @@ export class EditComponent {
   product: Product = inject(ActivatedRoute).snapshot.data['product'];
 
 
-  form = new FormGroup({
-    title: new FormControl<string>(this.product.title, {
-      nonNullable: true,
-      validators: Validators.required,
-    }),
-  });
-
-  onSubmit() {
+  onSubmit(produc: Product) {
     this.productsService
-      .putProduct(this.product.id, {
-        title: this.form.controls.title.value,
-      })
+      .putProduct(this.product.id, produc)
       .subscribe(() => {
 
         //as configuracoes estao no app.config apos refatoracao para uso global

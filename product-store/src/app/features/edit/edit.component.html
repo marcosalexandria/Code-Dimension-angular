@@ -1,12 +1,2 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
-  <div class="form-content-container">
-
-    <mat-form-field>
-      <mat-label> Titulo </mat-label>
-      <input type="text" matInput formControlName="title">
-    </mat-form-field>
-
-    <button type="submit" mat-raised-button color="primary">Salvar</button>
-
-  </div>
-</form>
+<!--produto vem da rota que foi recuperada via resove e pe passado para o formulario em [product]="product" quando clica no botão emite o done e evia para o onSubmit o evento que é o produto alterado-->
+<app-form [product]="product" (done)="onSubmit($event)"></app-form>
